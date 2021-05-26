@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script
+      src="https://kit.fontawesome.com/ddd45ece9d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" class="css" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container weather-app">
+      <header>
+        <h1>
+          <span class="weather-title" id="weather-title"></span>
+          <span class="location" id="search-location"></span>
+        </h1>
+        <div class="row seach-bar">
+          <div class="input-group mb-2">
+            <div class="current-location-button">
+              <input
+                type="submit"
+                class="btn btn-dark"
+                value="Current Location"
+                id="current-location-button"
+              />
+            </div>
+            <form id="search-form">
+              <div class="search-field">
+                <input
+                  type="search"
+                  class="form-control"
+                  placeholder="Enter a city..."
+                  aria-describedby="button-addon2"
+                  id="search-text-input"
+                />
+              </div>
+              <div class="search-button">
+                <input
+                  type="submit"
+                  class="btn btn-outline-dark"
+                  id="button-addon2 search-button"
+                  value="Search"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+        <div
+          class="btn-group col-3 fahrenheit-celsius"
+          role="group"
+          aria-label="Basic radio toggle button group"
+          id="temperature-scale-button-group"
+        >
+          <input
+            type="radio"
+            class="btn-check"
+            name="btnradio"
+            id="btnradio1"
+            autocomplete="off"
+            checked
+          />
+          <label class="btn btn-outline-dark" for="btnradio1">
+            <div class="temperature-scale" id="fahrenheit-button">&degF</div>
+          </label>
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="btnradio"
+            id="btnradio3"
+            autocomplete="off"
+          />
+          <label class="btn btn-outline-dark" for="btnradio3">
+            <div class="temperature-scale" id="celsius-button">&degC</div>
+          </label>
+        </div>
+      </header>
+      <section class="today">
+        <h4>Today</h4>
+        <div class="date">
+          <span id="date">Sunday, May 2</span>
+          <sup id="suffix">nd</sup>
+        </div>
+        <div class="current-time" id="current-time"></div>
+        <hr class="current-time-hr" />
+        <div class="row current">
+          <div class="col-4 today-weather-icon">
+            <img src="images/partly-cloudy.svg" alt="partly cloudy" />
+          </div>
+          <div class="col-4 currently">
+            currently
+            <hr class="current-temp-hr" />
+            <span class="current-temp" id="current-temp">--</span>
+            <span id="current-temperature-scale">&deg</span>
+          </div>
+          <div class="col-4 current-weather">
+            <div id="current-weather">Partly Cloudy</div>
+            <div id="current-weather-description"></div>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-6 today-high-low">
+            <span class="today-high-temp" id="today-high-temp">--</span
+            ><span
+              class="today-high-temperature-scale"
+              id="today-high-temp-scale"
+            ></span>
+            <br />
+            <span class="today-low-temp" id="today-low-temp">--</span
+            ><span
+              class="today-low-temperature-scale"
+              id="today-low-temp-scale"
+            ></span>
+          </div>
+
+          <div class="col-6 current-conditions">
+            <ul class="current-conditions-list">
+              <li class="list-item feels-like">
+                Feels Like:
+                <span id="feels-like"></span>
+                <span id="feels-like-temp-scale"></span>
+              </li>
+              <li class="list-item wind">
+                Wind:
+                <span id="wind">-</span>
+                <span id="wind-unit"></span>
+                <span id="wind-direction"></span>
+              </li>
+
+              <li class="list-item humidity">
+                Humidity:
+                <span id="humidity">-</span>
+                <span class="humidity-percent">%</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="
+            row
+            additional-current-conditions
+            d-flex
+            justify-content-center
+          "
+        >
+          <div class="col-4 air-quality">
+            <div>Air Quality Index</div>
+            <hr />
+
+            <div class="current-air-quality additional-conditions">
+              <span class="air-quality-rating"> 32</span>
+              <br />
+              <span class="air-quality-description">Good</span>
+            </div>
+          </div>
+          <div class="col-4 sunrise-sunset">
+            <div>Sunrise/Sunset</div>
+            <hr />
+
+            <div class="current-sunrise-sunset additional-conditions">
+              <span class="sunrise-sunset-position">
+                6:09am
+                <br />
+                8:09pm</span
+              >
+            </div>
+          </div>
+          <div class="col-4 visibility">
+            <div>Visibility</div>
+            <hr />
+
+            <div class="current-visibility additional-conditions">
+              <span class="visibility-position"> 10 mi</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="section-break" />
+      <section class="six-day-forecast">
+        <div class="row">
+          <div class="col-2 future-forecast">
+            <div>5/3</div>
+            <div>
+              <div class="date-border">Mon</div>
+            </div>
+            <div class="weather-icon">☁</div>
+            <div class="high-temp">68&deg</div>
+            <div>50&deg</div>
+          </div>
+          <div class="col-2 future-forecast">
+            <div>5/4</div>
+            <div>
+              <div class="date-border">Tue</div>
+            </div>
+            <div class="weather-icon">🌦</div>
+            <div class="high-temp">65&deg</div>
+            <div>52&deg</div>
+          </div>
+          <div class="col-2 future-forecast">
+            <div>5/5</div>
+            <div>
+              <div class="date-border">Wed</div>
+            </div>
+            <div class="weather-icon">🌧</div>
+            <div class="high-temp">63&deg</div>
+            <div>54&deg</div>
+          </div>
+          <div class="col-2 future-forecast">
+            <div>5/6</div>
+            <div>
+              <div class="date-border">Thu</div>
+            </div>
+            <div class="weather-icon">🌦</div>
+            <div class="high-temp">66&deg</div>
+            <div>52&deg</div>
+          </div>
+          <div class="col-2 future-forecast">
+            <div>5/7</div>
+            <div>
+              <div class="date-border">Fri</div>
+            </div>
+            <div class="weather-icon">🌥</div>
+            <div class="high-temp">68&deg</div>
+            <div>55&deg</div>
+          </div>
+          <div class="col-2 future-forecast">
+            <div>5/7</div>
+            <div>
+              <div class="date-border">Sat</div>
+            </div>
+            <div class="weather-icon">☀</div>
+            <div class="high-temp">75&deg</div>
+            <div>58&deg</div>
+          </div>
+        </div>
+      </section>
+      <br />
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>

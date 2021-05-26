@@ -1,0 +1,308 @@
+body {
+  background: rgb(85, 85, 85);
+  font-family: Roboto, sans-serif;
+}
+
+h1 {
+  color: rgb(34, 34, 34);
+  font-size: 28px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+h4 {
+  color: rgb(34, 34, 34);
+  margin-bottom: -10px;
+  text-align: center;
+}
+
+.weather-app {
+  background: linear-gradient(rgb(52, 100, 109) 50%, rgb(86, 146, 156) 90%);
+  border: 2px solid rgb(11, 53, 61);
+  border-radius: 20px;
+  box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.1),
+    -10px -5px 10px rgba(0, 0, 0, 0.1), 10px -5px 10px rgba(0, 0, 0, 0.1),
+    -10px 5px 10px rgba(0, 0, 0, 0.1);
+  margin: 10px auto;
+  max-width: 700px;
+  padding-top: 20px;
+}
+
+.location {
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.search-bar {
+  display: table;
+}
+
+.current-location-button {
+  display: table-cell;
+}
+
+.search-field {
+  display: table-cell;
+}
+
+.search-button {
+  display: table-cell;
+}
+
+.fahrenheit-celsius {
+  height: 30px;
+  margin-bottom: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100px;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+.temperature-scale {
+  position: relative;
+  bottom: 3px;
+  height: 18px;
+  width: 23px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.date {
+  background: linear-gradient(rgb(43, 140, 153), rgb(30, 119, 134));
+  border: 2px solid rgb(29, 69, 75);
+  border-radius: 20px;
+  color: rgb(19, 19, 19);
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px auto;
+  max-width: 250px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+#suffix {
+  position: relative;
+  right: 5px;
+}
+
+.current-time {
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  color: rgb(19, 19, 19);
+  position: relative;
+  top: -5px;
+}
+
+.current-time-hr {
+  width: 100px;
+  margin: 0 auto;
+  position: relative;
+  top: -5px;
+}
+
+.current {
+  height: 150px;
+}
+
+.today-weather-icon {
+  font-size: 100px;
+  position: relative;
+  bottom: 40px;
+}
+
+.currently {
+  color: rgb(34, 34, 34);
+  font-weight: bold;
+  font-size: 18px;
+  max-width: 300px;
+  text-align: center;
+}
+
+.current-temp-hr {
+  margin: 3px auto;
+  position: relative;
+  top: 5px;
+  width: 150px;
+}
+
+.current-temp {
+  color: rgb(0, 0, 0);
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#current-temperature-scale {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  position: relative;
+  bottom: 20px;
+}
+
+.current-weather {
+  color: rgb(22, 22, 22);
+  font-size: 28px;
+  font-weight: bold;
+  position: relative;
+  right: 40px;
+  text-align: center;
+  top: 30px;
+}
+
+#current-weather-description {
+  color: rgb(34, 34, 34);
+  font-size: 20px;
+  font-style: italic;
+}
+
+.today-high-low {
+  text-align: center;
+  color: rgb(19, 19, 19);
+}
+
+.today-high-temp {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.today-low-temp {
+  font-size: 30px;
+}
+
+.today-high-temperature-scale {
+  position: relative;
+  top: -11px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.today-low-temperature-scale {
+  position: relative;
+  top: -10px;
+  font-size: 16px;
+}
+
+.current-conditions {
+  background: rgb(77, 160, 156);
+  border: 3px solid rgb(9, 72, 77);
+  border-radius: 20px;
+  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
+  max-width: 225px;
+}
+
+.current-conditions-list {
+  font-size: 18px;
+  line-height: 35px;
+  list-style: none;
+  position: relative;
+  top: 9px;
+  padding: 0 5px;
+}
+
+#feels-like-temp-scale {
+  position: relative;
+  right: 4px;
+}
+
+.humidity-percent {
+  position: relative;
+  right: 4px;
+}
+
+.additional-current-conditions {
+  margin: 20px auto;
+  font-size: 18px;
+}
+
+.additional-current-conditions hr {
+  bottom: 3px;
+  height: 2px;
+  margin: 5px auto;
+  max-width: 150px;
+  position: relative;
+}
+
+.additional-conditions {
+  background: rgb(77, 160, 156);
+  border: 3px solid rgb(9, 72, 77);
+  border-radius: 50%;
+  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
+  height: 110px;
+  margin: 0 auto;
+  padding: 20px 5px;
+  text-align: center;
+  width: 110px;
+}
+
+.air-quality {
+  max-width: 200px;
+  text-align: center;
+}
+
+.air-quality-rating {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.air-quality-description {
+  font-size: 17px;
+}
+
+.sunrise-sunset {
+  max-width: 200px;
+  text-align: center;
+}
+
+.current-sunrise-sunset {
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.sunrise-sunset-position {
+  position: relative;
+  top: 3px;
+}
+
+.visibility {
+  max-width: 200px;
+  text-align: center;
+}
+
+.current-visibility {
+  font-size: 24px;
+}
+
+.visibility-position {
+  position: relative;
+  top: 15px;
+}
+
+hr.section-break {
+  height: 2px;
+}
+
+.future-forecast {
+  color: rgb(34, 34, 34);
+  font-size: 18px;
+  text-align: center;
+}
+
+.date-border {
+  background: linear-gradient(rgb(43, 140, 153), rgb(30, 119, 134));
+  border: 2px solid rgb(29, 69, 75);
+  border-radius: 15px;
+  padding: 0 10px;
+}
+
+.future-forecast .weather-icon {
+  font-size: 36px;
+}
+
+.future-forecast .high-temp {
+  font-size: 22px;
+  font-weight: bold;
+}

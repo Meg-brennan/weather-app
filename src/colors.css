@@ -1,0 +1,174 @@
+.dark-mode {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  margin-bottom: 10px;
+}
+.dark-mode .one {
+  grid-column: 1;
+  grid-row: 1;
+  background: rgb(85, 85, 85);
+}
+.dark-mode .two {
+  grid-column: 1;
+  grid-row: 2;
+  background: rgb(34, 34, 34);
+}
+.dark-mode .three {
+  grid-column: 1;
+  grid-row: 3;
+  background: rgb(52, 100, 109);
+}
+.dark-mode .four {
+  grid-column: 1;
+  grid-row: 4;
+  background: rgb(3, 71, 60);
+}
+.dark-mode .five {
+  grid-column: 2;
+  grid-row: 1;
+  background: rgb(52, 104, 95);
+}
+.dark-mode .six {
+  grid-column: 2;
+  grid-row: 2;
+  background: rgb(77, 160, 139);
+}
+
+.dark-mode .seven {
+  grid-column: 2;
+  grid-row: 3;
+  background: rgb(9, 77, 59);
+}
+.dark-mode .eight {
+  grid-column: 2;
+  grid-row: 4;
+  background: rgb(71, 71, 71);
+}
+.dark-mode .nine {
+  grid-column: 3;
+  grid-row: 1;
+  background: rgb(49, 164, 168);
+}
+.dark-mode .ten {
+  grid-column: 3;
+  grid-row: 2;
+  background: rgb(17, 86, 99);
+}
+.dark-mode .eleven {
+  grid-column: 3;
+  grid-row: 3;
+  background: rgb(11, 53, 61);
+}
+.dark-mode .twelve {
+  grid-column: 3;
+  grid-row: 4;
+  background: rgb(62, 96, 102);
+}
+
+.dark-mode .thirteen {
+  grid-column: 1;
+  grid-row: 5;
+  background: rgb(56, 136, 146);
+}
+
+.dark-mode .fourteen {
+  grid-column: 1;
+  grid-row: 6;
+  background: rgb(29, 69, 75);
+}
+
+.dark-mode .fifteen {
+  grid-column: 2;
+  grid-row: 5;
+  background: rgb(77, 160, 146);
+}
+
+.dark-mode .sixteen {
+  grid-column: 2;
+  grid-row: 6;
+  background: rgb(9, 77, 71);
+}
+
+.dark-mode .seventeen {
+  grid-column: 3;
+  grid-row: 5;
+  background: rgb(30, 119, 134);
+  border: 2px solid #000;
+}
+
+.dark-mode .eighteen {
+  grid-column: 3;
+  grid-row: 6;
+  background: rgb(77, 160, 156);
+  border: 2px solid #000;
+}
+
+.light-mode {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  margin-bottom: 10px;
+}
+.light-mode .one {
+  grid-column: 1;
+  grid-row: 1;
+  background: rgb(250, 250, 250);
+}
+.light-mode .two {
+  grid-column: 1;
+  grid-row: 2;
+  background: #fff;
+}
+.light-mode .three {
+  grid-column: 1;
+  grid-row: 3;
+  background: rgb(240, 240, 240);
+}
+.light-mode .four {
+  grid-column: 1;
+  grid-row: 4;
+  background: rgb(100, 100, 100);
+}
+.light-mode .five {
+  grid-column: 2;
+  grid-row: 1;
+  background: rgb(34, 34, 34);
+}
+.light-mode .six {
+  grid-column: 2;
+  grid-row: 2;
+  background: rgb(19, 164, 190);
+}
+
+.light-mode .seven {
+  grid-column: 2;
+  grid-row: 3;
+  background: rgb(85, 85, 85);
+}
+.light-mode .eight {
+  grid-column: 2;
+  grid-row: 4;
+  background: rgb(104, 104, 104);
+}
+.light-mode .nine {
+  grid-column: 3;
+  grid-row: 1;
+  background: rgb(71, 71, 71);
+}
+.light-mode .ten {
+  grid-column: 3;
+  grid-row: 2;
+  background: rgb(131, 211, 191);
+}
+.light-mode .eleven {
+  grid-column: 3;
+  grid-row: 3;
+  background: rgb(220, 252, 244);
+}
+.light-mode .twelve {
+  grid-column: 3;
+  grid-row: 4;
+}

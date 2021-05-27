@@ -17,6 +17,19 @@ h4 {
   text-align: center;
 }
 
+footer {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: -5px;
+  text-align: center;
+}
+
+.source-code-link {
+  text-decoration: none;
+  color: darkblue;
+}
+
 .weather-app {
   background: linear-gradient(rgb(52, 100, 109) 50%, rgb(86, 146, 156) 90%);
   border: 2px solid rgb(11, 53, 61);

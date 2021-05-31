@@ -27,41 +27,39 @@
   <body>
     <div class="container weather-app">
       <header>
+        <div class="search-bar">
+          <div class="current-location-button">
+            <input
+              type="submit"
+              class="btn btn-dark"
+              value="Current Location"
+              id="current-location-button"
+            />
+          </div>
+          <form id="search-form">
+            <div class="search-field">
+              <input
+                type="search"
+                class="form-control"
+                placeholder="Enter a city..."
+                aria-describedby="button-addon2"
+                id="search-text-input"
+              />
+            </div>
+            <div class="search-button">
+              <input
+                type="submit"
+                class="btn btn-outline-dark"
+                id="button-addon2 search-button"
+                value="Search"
+              />
+            </div>
+          </form>
+        </div>
         <h1>
           <span class="weather-title" id="weather-title"></span>
           <span class="location" id="search-location"></span>
         </h1>
-        <div class="row seach-bar">
-          <div class="input-group mb-2">
-            <div class="current-location-button">
-              <input
-                type="submit"
-                class="btn btn-dark"
-                value="Current Location"
-                id="current-location-button"
-              />
-            </div>
-            <form id="search-form">
-              <div class="search-field">
-                <input
-                  type="search"
-                  class="form-control"
-                  placeholder="Enter a city..."
-                  aria-describedby="button-addon2"
-                  id="search-text-input"
-                />
-              </div>
-              <div class="search-button">
-                <input
-                  type="submit"
-                  class="btn btn-outline-dark"
-                  id="button-addon2 search-button"
-                  value="Search"
-                />
-              </div>
-            </form>
-          </div>
-        </div>
         <div
           class="btn-group col-3 fahrenheit-celsius"
           role="group"
@@ -254,13 +252,15 @@
       <br />
     </div>
     <footer>
-      <a
-        href="https://github.com/Meg-brennan/weather-app"
-        target="_blank"
-        class="source-code-link"
-        >Open-source code</a
+      <small>
+        <a
+          href="https://github.com/Meg-brennan/weather-app"
+          target="_blank"
+          class="source-code-link"
+          >Open-source code</a
+        >
+        by Megan Brennan</small
       >
-      by Megan Brennan
     </footer>
     <script src="src/script.js"></script>
   </body>

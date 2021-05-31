@@ -3,6 +3,10 @@ body {
   font-family: Roboto, sans-serif;
 }
 
+form {
+  display: inline-flex;
+}
+
 h1 {
   color: rgb(34, 34, 34);
   font-size: 28px;
@@ -25,11 +29,6 @@ footer {
   text-align: center;
 }
 
-.source-code-link {
-  text-decoration: none;
-  color: darkblue;
-}
-
 .weather-app {
   background: linear-gradient(rgb(52, 100, 109) 50%, rgb(86, 146, 156) 90%);
   border: 2px solid rgb(11, 53, 61);
@@ -42,26 +41,30 @@ footer {
   padding-top: 20px;
 }
 
+.search-bar {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.current-location-button {
+  display: inline-flex;
+}
+
+.search-field {
+  display: inline-flex;
+  width: 300px;
+}
+
+.search-button {
+  display: inline-flex;
+}
+
 .location {
   color: rgb(0, 0, 0);
   font-size: 30px;
   font-weight: bold;
-}
-
-.search-bar {
-  display: table;
-}
-
-.current-location-button {
-  display: table-cell;
-}
-
-.search-field {
-  display: table-cell;
-}
-
-.search-button {
-  display: table-cell;
 }
 
 .fahrenheit-celsius {
@@ -318,4 +321,9 @@ hr.section-break {
 .future-forecast .high-temp {
   font-size: 22px;
   font-weight: bold;
+}
+
+.source-code-link {
+  text-decoration: none;
+  color: darkblue;
 }

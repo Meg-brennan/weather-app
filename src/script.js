@@ -110,6 +110,16 @@ function getTemperatureScale(response) {
   }
 }
 
+function showWeatherIcon(response) {
+  let icon = response.data.weather[0].icon;
+  let iconElement = document.querySelector("#weather-icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+}
+
 function showSearchLocation(response) {
   let city = response.data.name;
   let country = response.data.sys.country;
@@ -222,7 +232,7 @@ function getSunriseSunset(response) {
 }
 
 function displayAdditionalConditions(response) {
-  //console.log(response);
+  console.log(response.data);
   getSunriseSunset;
   // getAirQuality;
   // getVisibility;
@@ -240,7 +250,7 @@ function search(city) {
   axios.get(`${apiSearchUrl}`).then(displayCurrentConditions);
   axios.get(`${apiSearchUrl}`).then(displayAdditionalConditions);
   axios.get(`${apiSearchUrl}`).then(getWindData);
-  //axios.get(`${apiSearchUrl}`).then();
+  axios.get(`${apiSearchUrl}`).then(showWeatherIcon);
 }
 
 function handleSubmit(event) {
@@ -271,6 +281,7 @@ function retrievePosition(position) {
   axios.get(`${apiUrl}`).then(getTemperatureScale);
   axios.get(`${apiUrl}`).then(displayCurrentConditions);
   axios.get(`${apiUrl}`).then(getWindData);
+  axios.get(`${apiUrl}`).then(showWeatherIcon);
 }
 
 function getCurrentLocation(event) {

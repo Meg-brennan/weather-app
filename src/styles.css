@@ -167,12 +167,7 @@ footer {
   right: 40px;
   text-align: center;
   top: 30px;
-}
-
-#current-weather-description {
-  color: rgb(34, 34, 34);
-  font-size: 20px;
-  font-style: italic;
+  text-transform: capitalize;
 }
 
 .today-high-low {

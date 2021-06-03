@@ -192,8 +192,6 @@ function getWindData(response) {
 
 function displayCurrentConditions(response) {
   document.querySelector("#current-weather").innerHTML =
-    response.data.weather[0].main;
-  document.querySelector("#current-weather-description").innerHTML =
     response.data.weather[0].description;
 
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;

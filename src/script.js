@@ -243,14 +243,14 @@ function search(city) {
   let speed = "metric";
   let apiKey = "fffd06c6f67e1f436ef14a830d4aa701";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
-  let apiSearchUrl = `${apiEndpoint}q=${city}&units=${unit}&${speed}&appid=${apiKey}`;
+  let apiUrl = `${apiEndpoint}q=${city}&units=${unit}&${speed}&appid=${apiKey}`;
 
-  axios.get(`${apiSearchUrl}`).then(showSearchLocation);
-  axios.get(`${apiSearchUrl}`).then(getTemperatureScale);
-  axios.get(`${apiSearchUrl}`).then(displayCurrentConditions);
-  axios.get(`${apiSearchUrl}`).then(displayAdditionalConditions);
-  axios.get(`${apiSearchUrl}`).then(getWindData);
-  axios.get(`${apiSearchUrl}`).then(showWeatherIcon);
+  axios.get(`${apiUrl}`).then(showSearchLocation);
+  axios.get(`${apiUrl}`).then(getTemperatureScale);
+  axios.get(`${apiUrl}`).then(displayCurrentConditions);
+  axios.get(`${apiUrl}`).then(displayAdditionalConditions);
+  axios.get(`${apiUrl}`).then(getWindData);
+  axios.get(`${apiUrl}`).then(showWeatherIcon);
 }
 
 function handleSubmit(event) {

@@ -167,6 +167,9 @@ footer {
   right: 40px;
   text-align: center;
   top: 30px;
+}
+
+.current-weather:first-letter {
   text-transform: capitalize;
 }
 

@@ -1,4 +1,4 @@
-function getCurrentDate() {
+function formatDate(timestamp) {
   let weekdays = [
     "Sunday",
     "Monday",
@@ -22,11 +22,15 @@ function getCurrentDate() {
     "November",
     "December",
   ];
+  let now = new Date();
   let day = weekdays[now.getDay()];
   let month = months[now.getMonth()];
   let date = now.getDate();
   let suffix = document.querySelector("#suffix");
   let hour = now.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
   let minutes = now.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
@@ -45,7 +49,7 @@ function getCurrentDate() {
     hour: "numeric",
     hour12: true,
   });
-  console.log(now.toLocaleTimeString());
+  // console.log(now.toLocaleTimeString());
   // I don't know how to implement .toLocaleTimeString into the webpage yet
 
   document.querySelector("#current-time").innerHTML = `${hour}:${minutes}`;
@@ -197,6 +201,8 @@ function displayCurrentConditions(response) {
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   //let precipitation = document.querySelector("#precipitation");
   //let precipitationInput = response.data.if();
+
+  formatDate(response.data.coord.dt * 1000);
 }
 
 function getSunriseSunset(response) {
@@ -216,7 +222,7 @@ function getSunriseSunset(response) {
 }
 
 function displayAdditionalConditions(response) {
-  console.log(response);
+  //console.log(response);
   getSunriseSunset;
   // getAirQuality;
   // getVisibility;
@@ -280,11 +286,6 @@ search("New York");
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
-
-// Current Time Display
-
-let now = new Date();
-getCurrentDate();
 
 // Show Search Location
 

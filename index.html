@@ -98,12 +98,14 @@
             <span id="date"></span>
             <sup id="suffix"></sup>
           </div>
-          <div class="current-time" id="current-time"></div>
+          <div class="current-time-statement">
+            Updated at: <span class="current-time" id="current-time"></span>
+          </div>
         </div>
         <hr class="current-time-hr" />
         <div class="row current">
-          <div class="col-4 today-weather-icon">
-            <img src="" alt="" id="weather-icon" />
+          <div class="col-4">
+            <img src="" alt="" id="weather-icon" class="current-weather-icon" />
           </div>
           <div class="col-4 currently">
             currently
@@ -187,7 +189,10 @@
             <hr />
 
             <div class="current-visibility additional-conditions">
-              <span class="visibility-position"> 10 mi</span>
+              <span class="visibility-position">
+                <span id="visibility-amount"></span>
+                <span id="visibility-unit"></span>
+              </span>
             </div>
           </div>
         </div>

@@ -104,14 +104,17 @@ footer {
   right: 5px;
 }
 
-.current-time {
+.current-time-statement {
+  position: relative;
+  top: -5px;
   margin: 0 auto;
   text-align: center;
+}
+
+.current-time {
   font-weight: bold;
   font-size: 22px;
   color: rgb(19, 19, 19);
-  position: relative;
-  top: -5px;
 }
 
 .current-time-hr {
@@ -125,10 +128,9 @@ footer {
   height: 150px;
 }
 
-.today-weather-icon {
-  font-size: 100px;
+.current-weather-icon {
   position: relative;
-  bottom: 40px;
+  left: 50px;
 }
 
 .currently {

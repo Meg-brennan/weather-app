@@ -217,8 +217,8 @@ function displayCurrentConditions(response) {
 
 function getSunriseSunset(response) {
   //this function is not functional
-  let sunriseTimestamp = response.data.sys.sunrise;
-  let sunsetTimestamp = response.data.sys.sunset;
+  let sunriseTimestamp = response.data.sys.sunrise * 1000;
+  let sunsetTimestamp = response.data.sys.sunset * 1000;
   let timezone = response.data.timezone;
   let adjustedSunrise = sunriseTimestamp + timezone;
   let adjustedSunset = sunsetTimestamp + timezone;
@@ -231,11 +231,17 @@ function getSunriseSunset(response) {
   console.log(sunset);
 }
 
+function getVisibility(response) {
+  document.querySelector("#visibility-amount").innerHTML =
+    response.data.visibility / 1000;
+  document.querySelector("#visibility-unit").innerHTML = "km";
+}
+
 function displayAdditionalConditions(response) {
   console.log(response.data);
-  getSunriseSunset;
+  getSunriseSunset(response);
   // getAirQuality;
-  // getVisibility;
+  getVisibility(response);
 }
 
 function search(city) {

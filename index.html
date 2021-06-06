@@ -73,7 +73,6 @@
             name="btnradio"
             id="btnradio1"
             autocomplete="off"
-            checked
           />
           <label class="btn btn-outline-dark" for="btnradio1">
             <div class="temperature-scale" id="fahrenheit-button">&degF</div>
@@ -85,6 +84,7 @@
             name="btnradio"
             id="btnradio3"
             autocomplete="off"
+            checked
           />
           <label class="btn btn-outline-dark" for="btnradio3">
             <div class="temperature-scale" id="celsius-button">&degC</div>
@@ -110,8 +110,8 @@
           <div class="col-4 currently">
             currently
             <hr class="current-temp-hr" />
-            <span class="current-temp" id="current-temp">--</span>
-            <span id="current-temperature-scale">&deg</span>
+            <span class="current-temp" id="current-temp"></span>
+            <span id="current-temperature-scale"></span>
           </div>
           <div class="col-4 current-weather">
             <div id="current-weather"></div>
@@ -119,13 +119,13 @@
         </div>
         <div class="row d-flex justify-content-center">
           <div class="col-6 today-high-low">
-            <span class="today-high-temp" id="today-high-temp">--</span
+            <span class="today-high-temp" id="today-high-temp"></span
             ><span
               class="today-high-temperature-scale"
               id="today-high-temp-scale"
             ></span>
             <br />
-            <span class="today-low-temp" id="today-low-temp">--</span
+            <span class="today-low-temp" id="today-low-temp"></span
             ><span
               class="today-low-temperature-scale"
               id="today-low-temp-scale"
@@ -141,14 +141,14 @@
               </li>
               <li class="list-item wind">
                 Wind:
-                <span id="wind">-</span>
+                <span id="wind"></span>
                 <span id="wind-unit"></span>
                 <span id="wind-direction"></span>
               </li>
 
               <li class="list-item humidity">
                 Humidity:
-                <span id="humidity">-</span>
+                <span id="humidity"></span>
                 <span class="humidity-percent">%</span>
               </li>
             </ul>

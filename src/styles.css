@@ -86,6 +86,10 @@ footer {
   margin-right: auto;
 }
 
+.current-date-time {
+  position: relative;
+}
+
 .date {
   background: linear-gradient(rgb(43, 140, 153), rgb(30, 119, 134));
   border: 2px solid rgb(29, 69, 75);
@@ -94,7 +98,6 @@ footer {
   font-size: 24px;
   font-weight: bold;
   margin: 10px auto;
-  width: 300px;
   padding: 0 20px;
   text-align: center;
 }
@@ -105,9 +108,6 @@ footer {
 }
 
 .current-time-statement {
-  position: relative;
-  top: -5px;
-  margin: 0 auto;
   text-align: center;
 }
 
@@ -118,22 +118,12 @@ footer {
 }
 
 .current-time-hr {
-  width: 100px;
+  width: 100%;
   margin: 0 auto;
-  position: relative;
-  top: -5px;
+  height: 2px;
 }
 
-.current {
-  height: 150px;
-}
-
-.current-weather-icon {
-  position: relative;
-  left: 50px;
-}
-
-.currently {
+.current-temp-section {
   color: rgb(34, 34, 34);
   font-weight: bold;
   font-size: 18px;
@@ -161,23 +151,29 @@ footer {
   bottom: 20px;
 }
 
-.current-weather {
+.current-weather-section {
   color: rgb(22, 22, 22);
   font-size: 28px;
   font-weight: bold;
   position: relative;
-  right: 40px;
+  right: 35px;
   text-align: center;
-  top: 30px;
+  bottom: 10px;
 }
 
-.current-weather:first-letter {
+.current-weather-description {
+  position: relative;
+  bottom: 16px;
+}
+
+.current-weather-description:first-letter {
   text-transform: capitalize;
 }
 
 .today-high-low {
   text-align: center;
   color: rgb(19, 19, 19);
+  margin: auto;
 }
 
 .today-high-temp {
@@ -208,6 +204,7 @@ footer {
   border-radius: 20px;
   box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
   max-width: 225px;
+  margin: auto;
 }
 
 .current-conditions-list {

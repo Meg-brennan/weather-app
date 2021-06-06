@@ -92,29 +92,34 @@
         </div>
       </header>
       <section class="today">
-        <h4>Today</h4>
-        <div id="current-date">
-          <div class="date">
-            <span id="date"></span>
-            <sup id="suffix"></sup>
-          </div>
-          <div class="current-time-statement">
-            Updated at: <span class="current-time" id="current-time"></span>
-          </div>
-        </div>
-        <hr class="current-time-hr" />
         <div class="row current">
-          <div class="col-4">
-            <img src="" alt="" id="weather-icon" class="current-weather-icon" />
+          <div class="col-4 current-date-time" id="current-date">
+            <h4>Today</h4>
+            <div class="date">
+              <span id="date"></span>
+              <sup id="suffix"></sup>
+            </div>
+            <div class="current-time-statement">
+              Updated at: <span class="current-time" id="current-time"></span>
+            </div>
+            <hr class="current-time-hr" />
           </div>
-          <div class="col-4 currently">
+          <div class="col-4 current-temp-section">
             currently
             <hr class="current-temp-hr" />
             <span class="current-temp" id="current-temp"></span>
             <span id="current-temperature-scale"></span>
           </div>
-          <div class="col-4 current-weather">
-            <div id="current-weather"></div>
+          <div class="col-4 current-weather-section">
+            <div>
+              <img
+                src=""
+                alt=""
+                id="weather-icon"
+                class="current-weather-icon"
+              />
+            </div>
+            <div class="current-weather-description" id="current-weather"></div>
           </div>
         </div>
         <div class="row d-flex justify-content-center">
@@ -124,7 +129,7 @@
               class="today-high-temperature-scale"
               id="today-high-temp-scale"
             ></span>
-            <br />
+            /
             <span class="today-low-temp" id="today-low-temp"></span
             ><span
               class="today-low-temperature-scale"

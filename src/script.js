@@ -53,7 +53,7 @@ function formatDate(timestamp) {
   // I don't know how to implement .toLocaleTimeString into the webpage yet
 
   document.querySelector("#current-time").innerHTML = `${hour}:${minutes}`;
-  document.querySelector("#date").innerHTML = `${day}, ${month} ${date}`;
+  document.querySelector("#date").innerHTML = `${day},<br />${month} ${date}`;
 }
 
 function displayTemperatureCelsius(response) {

@@ -96,28 +96,8 @@ function displayTemperatureFahrenheit(response) {
 
 function getWindData(response) {
   let windUnit = document.querySelector("#wind-unit");
-  let country = response.data.sys.country;
 
-  if (
-    country === "US" ||
-    country === "UK" ||
-    country === "PR" ||
-    country === "BS" ||
-    country === "AG" ||
-    country === "VG" ||
-    country === "BM" ||
-    country === "KN" ||
-    country === "LC" ||
-    country === "VI" ||
-    country === "GD" ||
-    country === "GI" ||
-    country === "SH" ||
-    country === "WS" ||
-    country === "VC" ||
-    country === "GU" ||
-    country === "LR" ||
-    country === "MM"
-  ) {
+  if (fahrenheitButton.hasAttribute("checked") == true) {
     windUnit.innerHTML = " mi/h ";
     document.querySelector("#wind").innerHTML = Math.round(
       response.data.wind.speed * 3.6 * 0.62
@@ -177,23 +157,52 @@ function getSunriseSunset(response) {
   let timezone = response.data.timezone;
   let adjustedSunrise = sunriseTimestamp + timezone;
   let adjustedSunset = sunsetTimestamp + timezone;
-  console.log(adjustedSunrise);
+  //console.log(adjustedSunrise);
   let sunrise = new Date(adjustedSunrise);
   let sunset = new Date(adjustedSunset);
-  console.log(sunrise.getTime());
-  console.log(sunrise);
-  console.log(sunset.getTime());
-  console.log(sunset);
+  //console.log(sunrise.getTime());
+  //console.log(sunrise);
+  //console.log(sunset.getTime());
+  //console.log(sunset);
 }
 
-function displayAdditionalConditions(response) {
-  // get sunrise & sunset
-  getSunriseSunset(response);
-  // visibility
-  document.querySelector("#visibility-amount").innerHTML =
-    response.data.visibility / 1000;
-  document.querySelector("#visibility-unit").innerHTML = "km";
-  // getAirQuality;
+function displayAirQuality(response) {
+  console.log(response);
+  let aqi = response.data.data.aqi;
+  let airQualityRating = document.querySelector("#air-quality-rating");
+  let airQualityDescription = document.querySelector(
+    "#air-quality-description"
+  );
+  if (aqi <= 50) {
+    airQualityDescription.innerHTML = "Good";
+  } else if (aqi > 50 && aqi <= 100) {
+    airQualityDescription.innerHTML = "Moderate";
+  } else if (aqi > 100 && aqi <= 150) {
+    airQualityDescription.innerHTML = "Unhealthy<br>(Sensitive groups)";
+  } else if (aqi > 150 && aqi <= 200) {
+    airQualityDescription.innerHTML = "Unhealthy";
+  } else if (aqi > 200 && aqi <= 300) {
+    airQualityDescription.innerHTML = "Very Unhealthy";
+  } else if (aqi > 300) {
+    airQualityDescription.innerHTML = "Hazardous";
+  } else {
+    airQualityDescription.innerHTML = "unknown";
+  }
+
+  if (aqi == null) {
+    airQualityRating.innerHTML = "-";
+  } else {
+    airQualityRating.innerHTML = aqi;
+  }
+}
+
+function getAirQuality(response) {
+  city = response.data.name;
+  let aqiApiToken = "a551fc0df656990285c1e8f454235fd89ac3eaf8";
+  let aqiApiEndpoint = "https://api.waqi.info/feed/";
+  let aqiApiUrl = `${aqiApiEndpoint}${city}/?token=${aqiApiToken}`;
+
+  axios.get(`${aqiApiUrl}`).then(displayAirQuality);
 }
 
 function getTemperatureScale(response) {
@@ -228,6 +237,14 @@ function displayCurrentConditions(response) {
     `https://openweathermap.org/img/wn/${icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  // get sunrise & sunset
+  getSunriseSunset(response);
+  // visibility
+  document.querySelector("#visibility-amount").innerHTML =
+    response.data.visibility / 1000;
+  document.querySelector("#visibility-unit").innerHTML = "km";
+  // getAirQuality;
+  getAirQuality(response);
 }
 
 function displaySearchLocation(response) {
@@ -267,7 +284,6 @@ function search(city) {
 
   axios.get(`${apiUrl}`).then(displaySearchLocation);
   axios.get(`${apiUrl}`).then(displayCurrentConditions);
-  axios.get(`${apiUrl}`).then(displayAdditionalConditions);
   axios.get(`${apiUrl}`).then(getWindData);
 }
 

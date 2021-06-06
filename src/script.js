@@ -53,7 +53,7 @@ function formatDate(timestamp) {
   // I don't know how to implement .toLocaleTimeString into the webpage yet
 
   document.querySelector("#current-time").innerHTML = `${hour}:${minutes}`;
-  document.querySelector("#date").innerHTML = `${day},<br />${month} ${date}`;
+  document.querySelector("#date").innerHTML = `${day}, ${month} ${date}`;
 }
 
 function displayTemperatureCelsius(response) {
@@ -94,19 +94,16 @@ function displayTemperatureFahrenheit(response) {
   document.querySelector("#feels-like-temp-scale").innerHTML = "&degF";
 }
 
-function getWindData(response) {
+function displayWindData(response) {
   let windUnit = document.querySelector("#wind-unit");
+  let windSpeed = document.querySelector("#wind-speed");
 
-  if (fahrenheitButton.hasAttribute("checked") == true) {
+  if (fahrenheitButton.hasAttribute("checked")) {
     windUnit.innerHTML = " mi/h ";
-    document.querySelector("#wind").innerHTML = Math.round(
-      response.data.wind.speed * 3.6 * 0.62
-    );
+    windSpeed.innerHTML = Math.round(response.data.wind.speed * 3.6 * 0.62);
   } else {
     windUnit.innerHTML = " km/h ";
-    document.querySelector("#wind").innerHTML = Math.round(
-      response.data.wind.speed * 3.6
-    );
+    windSpeed.innerHTML = Math.round(response.data.wind.speed * 3.6);
   }
 
   let windDegrees = response.data.wind.deg;
@@ -221,7 +218,6 @@ function displayCurrentConditions(response) {
   currentRealFeelTemp = response.data.main.feels_like;
 
   getTemperatureScale(response);
-
   // weather description
   document.querySelector("#current-weather").innerHTML =
     response.data.weather[0].description;
@@ -243,8 +239,10 @@ function displayCurrentConditions(response) {
   document.querySelector("#visibility-amount").innerHTML =
     response.data.visibility / 1000;
   document.querySelector("#visibility-unit").innerHTML = "km";
-  // getAirQuality;
+  // air quality;
   getAirQuality(response);
+  // wind
+  displayWindData(response);
 }
 
 function displaySearchLocation(response) {
@@ -267,7 +265,6 @@ function retrievePosition(position) {
 
   axios.get(`${apiUrl}`).then(displaySearchLocation);
   axios.get(`${apiUrl}`).then(displayCurrentConditions);
-  axios.get(`${apiUrl}`).then(getWindData);
 }
 
 function getCurrentLocation(event) {
@@ -284,7 +281,6 @@ function search(city) {
 
   axios.get(`${apiUrl}`).then(displaySearchLocation);
   axios.get(`${apiUrl}`).then(displayCurrentConditions);
-  axios.get(`${apiUrl}`).then(getWindData);
 }
 
 function handleSubmit(event) {

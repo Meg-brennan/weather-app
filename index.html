@@ -92,24 +92,18 @@
         </div>
       </header>
       <section class="today">
+        <div class="current-date-time" id="current-date">
+          <h4>Today</h4>
+          <div class="date">
+            <span id="date"></span>
+            <sup id="suffix"></sup>
+          </div>
+          <div class="current-time-statement">
+            Updated at: <span class="current-time" id="current-time"></span>
+          </div>
+          <hr class="current-time-hr" />
+        </div>
         <div class="row current">
-          <div class="col-4 current-date-time" id="current-date">
-            <h4>Today</h4>
-            <div class="date">
-              <span id="date"></span>
-              <sup id="suffix"></sup>
-            </div>
-            <div class="current-time-statement">
-              Updated at: <span class="current-time" id="current-time"></span>
-            </div>
-            <hr class="current-time-hr" />
-          </div>
-          <div class="col-4 current-temp-section">
-            currently
-            <hr class="current-temp-hr" />
-            <span class="current-temp" id="current-temp"></span>
-            <span id="current-temperature-scale"></span>
-          </div>
           <div class="col-4 current-weather-section">
             <div>
               <img
@@ -121,9 +115,36 @@
             </div>
             <div class="current-weather-description" id="current-weather"></div>
           </div>
+          <div class="col-4 current-temp-section">
+            currently
+            <hr class="current-temp-hr" />
+            <span class="current-temp" id="current-temp"></span>
+            <span id="current-temperature-scale"></span>
+          </div>
+          <div class="col-4 current-conditions">
+            <ul class="current-conditions-list">
+              <li class="list-item feels-like">
+                Feels Like:
+                <span id="feels-like"></span>
+                <span id="feels-like-temp-scale"></span>
+              </li>
+              <li class="list-item wind">
+                Wind:
+                <span id="wind-speed"></span>
+                <span id="wind-unit"></span>
+                <span id="wind-direction"></span>
+              </li>
+
+              <li class="list-item humidity">
+                Humidity:
+                <span id="humidity"></span>
+                <span class="humidity-percent">%</span>
+              </li>
+            </ul>
+          </div>
         </div>
         <div class="row d-flex justify-content-center">
-          <div class="col-6 today-high-low">
+          <div class="today-high-low">
             <span class="today-high-temp" id="today-high-temp"></span
             ><span
               class="today-high-temperature-scale"
@@ -135,28 +156,6 @@
               class="today-low-temperature-scale"
               id="today-low-temp-scale"
             ></span>
-          </div>
-
-          <div class="col-6 current-conditions">
-            <ul class="current-conditions-list">
-              <li class="list-item feels-like">
-                Feels Like:
-                <span id="feels-like"></span>
-                <span id="feels-like-temp-scale"></span>
-              </li>
-              <li class="list-item wind">
-                Wind:
-                <span id="wind"></span>
-                <span id="wind-unit"></span>
-                <span id="wind-direction"></span>
-              </li>
-
-              <li class="list-item humidity">
-                Humidity:
-                <span id="humidity"></span>
-                <span class="humidity-percent">%</span>
-              </li>
-            </ul>
           </div>
         </div>
         <div
@@ -279,7 +278,7 @@
       <small>
         <br />
         *Air quality data sourced from World Air Quality Index Project at
-        <a href="https://aqicn.org" target="_blank">aqicn.org</a>
+        <a href="https://aqicn.org/api/" target="_blank">aqicn.org/api</a>
       </small>
     </footer>
     <script src="src/script.js"></script>

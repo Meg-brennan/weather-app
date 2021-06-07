@@ -69,21 +69,27 @@ footer {
 
 .fahrenheit-celsius {
   height: 30px;
-  margin-bottom: 15px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  align-items: flex-start;
+  margin: auto;
   max-width: 100px;
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
 
-.temperature-scale {
+input.btn-check {
+  width: 100px;
+}
+
+label.temperature-scale {
+  height: 30px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.temperature-label {
   position: relative;
   bottom: 3px;
-  height: 18px;
-  width: 23px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .current-date-time {

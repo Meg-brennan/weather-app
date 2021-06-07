@@ -100,7 +100,7 @@ function displayWindData(response) {
 
   if (fahrenheitButton.hasAttribute("checked")) {
     windUnit.innerHTML = " mi/h ";
-    windSpeed.innerHTML = Math.round(response.data.wind.speed * 3.6 * 0.62);
+    windSpeed.innerHTML = Math.round(response.data.wind.speed * 2.232);
   } else {
     windUnit.innerHTML = " km/h ";
     windSpeed.innerHTML = Math.round(response.data.wind.speed * 3.6);
@@ -147,7 +147,7 @@ function displayWindData(response) {
   }
 }
 
-function getSunriseSunset(response) {
+function displaySunriseSunset(response) {
   //this function is not functional
   let sunriseTimestamp = response.data.sys.sunrise * 1000;
   let sunsetTimestamp = response.data.sys.sunset * 1000;
@@ -161,6 +161,19 @@ function getSunriseSunset(response) {
   //console.log(sunrise);
   //console.log(sunset.getTime());
   //console.log(sunset);
+}
+
+function displayVisibility(response) {
+  let visibility = document.querySelector("#visibility-amount");
+  let visibilityUnit = document.querySelector("#visibility-unit");
+
+  if (celsiusButton.hasAttribute("checked")) {
+    visibility.innerHTML = Math.round(response.data.visibility / 1000);
+    visibilityUnit.innerHTML = "km";
+  } else {
+    visibility.innerHTML = Math.round(response.data.visibility * 0.00062137119);
+    visibilityUnit.innerHTML = "mi";
+  }
 }
 
 function displayAirQuality(response) {
@@ -234,15 +247,13 @@ function displayCurrentConditions(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
   // get sunrise & sunset
-  getSunriseSunset(response);
-  // visibility
-  document.querySelector("#visibility-amount").innerHTML =
-    response.data.visibility / 1000;
-  document.querySelector("#visibility-unit").innerHTML = "km";
-  // air quality;
-  getAirQuality(response);
+  displaySunriseSunset(response);
   // wind
   displayWindData(response);
+  // visibility
+  displayVisibility(response);
+  // air quality;
+  getAirQuality(response);
 }
 
 function displaySearchLocation(response) {
@@ -296,8 +307,8 @@ let currentLowTemp = null;
 let currentRealFeelTemp = null;
 
 // Temperature scale radio-buttons event listeners
-let fahrenheitButton = document.querySelector("#fahrenheit-button");
-let celsiusButton = document.querySelector("#celsius-button");
+let fahrenheitButton = document.querySelector("#btnradio1");
+let celsiusButton = document.querySelector("#btnradio3");
 
 celsiusButton.addEventListener("click", displayTemperatureCelsius);
 fahrenheitButton.addEventListener("click", displayTemperatureFahrenheit);

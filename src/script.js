@@ -154,12 +154,15 @@ function displaySunriseSunset(response) {
   let timezone = response.data.timezone;
   let adjustedSunrise = sunriseTimestamp + timezone;
   let adjustedSunset = sunsetTimestamp + timezone;
+  console.log(sunriseTimestamp);
+  console.log(sunsetTimestamp);
+  console.log(timezone);
   //console.log(adjustedSunrise);
-  let sunrise = new Date(adjustedSunrise);
-  let sunset = new Date(adjustedSunset);
-  //console.log(sunrise.getTime());
+  let sunrise = new Date(sunriseTimestamp);
+  let sunset = new Date(sunsetTimestamp);
+  console.log(sunrise.getTime());
   //console.log(sunrise);
-  //console.log(sunset.getTime());
+  console.log(sunset.getTime());
   //console.log(sunset);
 }
 
@@ -168,16 +171,17 @@ function displayVisibility(response) {
   let visibilityUnit = document.querySelector("#visibility-unit");
 
   if (celsiusButton.hasAttribute("checked")) {
-    visibility.innerHTML = Math.round(response.data.visibility / 1000);
+    visibility.innerHTML = Math.round(response.data.visibility / 100) / 10;
     visibilityUnit.innerHTML = "km";
   } else {
-    visibility.innerHTML = Math.round(response.data.visibility * 0.00062137119);
+    visibility.innerHTML =
+      Math.round(response.data.visibility * 0.0062137119) / 10;
     visibilityUnit.innerHTML = "mi";
   }
 }
 
 function displayAirQuality(response) {
-  console.log(response);
+  //console.log(response);
   let aqi = response.data.data.aqi;
   let airQualityRating = document.querySelector("#air-quality-rating");
   let airQualityDescription = document.querySelector(

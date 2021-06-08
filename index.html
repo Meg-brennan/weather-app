@@ -169,7 +169,6 @@
           <div class="col-4 air-quality">
             <div>Air Quality Index</div>
             <hr />
-
             <div class="current-air-quality additional-conditions">
               <span class="air-quality-rating" id="air-quality-rating"></span>
               <br />
@@ -185,13 +184,17 @@
 
             <div class="current-sunrise-sunset additional-conditions">
               <span class="sunrise-sunset-position">
-                <span id="sunrise-hour"></span>
-                :
-                <span id="sunrise-minutes"></span>
+                <span class="sunrise">
+                  <span id="sunrise-hour"></span>
+                  :
+                  <span id="sunrise-minutes"></span
+                ></span>
                 <br />
-                <span id="sunset-hour"></span>
-                :
-                <span id="sunset-minutes"></span>
+                <span class="sunset">
+                  <span id="sunset-hour"></span>
+                  :
+                  <span id="sunset-minutes"></span
+                ></span>
               </span>
             </div>
           </div>
@@ -212,58 +215,13 @@
       <section class="six-day-forecast">
         <div class="row">
           <div class="col-2 future-forecast">
-            <div>5/3</div>
+            <div class="forecast-date">5/3</div>
             <div>
-              <div class="date-border">Mon</div>
+              <div class="forecast-date-border">Mon</div>
             </div>
-            <div class="weather-icon">☁</div>
-            <div class="high-temp">68&deg</div>
-            <div>50&deg</div>
-          </div>
-          <div class="col-2 future-forecast">
-            <div>5/4</div>
-            <div>
-              <div class="date-border">Tue</div>
-            </div>
-            <div class="weather-icon">🌦</div>
-            <div class="high-temp">65&deg</div>
-            <div>52&deg</div>
-          </div>
-          <div class="col-2 future-forecast">
-            <div>5/5</div>
-            <div>
-              <div class="date-border">Wed</div>
-            </div>
-            <div class="weather-icon">🌧</div>
-            <div class="high-temp">63&deg</div>
-            <div>54&deg</div>
-          </div>
-          <div class="col-2 future-forecast">
-            <div>5/6</div>
-            <div>
-              <div class="date-border">Thu</div>
-            </div>
-            <div class="weather-icon">🌦</div>
-            <div class="high-temp">66&deg</div>
-            <div>52&deg</div>
-          </div>
-          <div class="col-2 future-forecast">
-            <div>5/7</div>
-            <div>
-              <div class="date-border">Fri</div>
-            </div>
-            <div class="weather-icon">🌥</div>
-            <div class="high-temp">68&deg</div>
-            <div>55&deg</div>
-          </div>
-          <div class="col-2 future-forecast">
-            <div>5/7</div>
-            <div>
-              <div class="date-border">Sat</div>
-            </div>
-            <div class="weather-icon">☀</div>
-            <div class="high-temp">75&deg</div>
-            <div>58&deg</div>
+            <div class="forecast-weather-icon">☁</div>
+            <div class="forecast-high-temp">68&deg</div>
+            <div class="forecast-low-temp">50&deg</div>
           </div>
         </div>
       </section>

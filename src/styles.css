@@ -284,13 +284,12 @@ hr.current-time-hr {
 }
 
 .current-sunrise-sunset {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 30px;
 }
 
 .sunrise-sunset-position {
   position: relative;
-  top: 3px;
 }
 
 #sunrise-hour {
@@ -301,6 +300,11 @@ hr.current-time-hr {
 #sunrise-minutes {
   position: relative;
   right: 2px;
+}
+
+.sunset {
+  position: relative;
+  top: 5px;
 }
 
 #sunset-hour {
@@ -337,18 +341,18 @@ hr.section-break {
   text-align: center;
 }
 
-.date-border {
+.forecast-date-border {
   background: linear-gradient(rgb(43, 140, 153), rgb(30, 119, 134));
   border: 2px solid rgb(29, 69, 75);
   border-radius: 15px;
   padding: 0 10px;
 }
 
-.future-forecast .weather-icon {
+.forecast-weather-icon {
   font-size: 36px;
 }
 
-.future-forecast .high-temp {
+.forecast-high-temp {
   font-size: 22px;
   font-weight: bold;
 }

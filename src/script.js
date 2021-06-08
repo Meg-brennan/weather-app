@@ -165,6 +165,10 @@ function displaySunriseSunset(response) {
     sunriseHour = sunriseHour - 24;
     sunriseHour = `0${sunriseHour}`;
   }
+  if (sunriseHour > 0) {
+    sunriseHour = sunriseHour * -1;
+    sunriseHour = `0${sunriseHour};`;
+  }
   let sunriseMinutes = sunrise.getMinutes();
   if (sunriseMinutes < 10) {
     sunriseMinutes = `0${sunriseMinutes}`;
@@ -175,6 +179,10 @@ function displaySunriseSunset(response) {
   }
   if (sunsetHour < 0) {
     sunsetHour = sunsetHour * -1;
+    sunsetHour = `0${sunsetHour}`;
+  }
+  if (sunsetHour >= 24) {
+    sunsetHour = sunsetHour - 24;
     sunsetHour = `0${sunsetHour}`;
   }
   let sunsetMinutes = sunset.getMinutes();

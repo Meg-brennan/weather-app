@@ -354,6 +354,11 @@ hr.section-break {
 }
 
 .source-code-link {
-  text-decoration: none;
   color: darkblue;
+  text-decoration: none;
+}
+
+.air-quality-link {
+  color: darkblue;
+  text-decoration: none;
 }

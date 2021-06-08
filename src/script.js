@@ -56,6 +56,37 @@ function formatDate(timestamp) {
   document.querySelector("#date").innerHTML = `${day}, ${month} ${date}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `     
+          <div class="col-2 future-forecast">
+            <div class="forecast-date">5/3</div>
+            <div>
+              <div class="forecast-date-border">${day}</div>
+            </div>
+            <div class="forecast-weather-icon">
+              <img
+                src=""
+                alt=""
+                id="weather-icon"
+                class="current-weather-icon"
+              />
+            </div>
+            <div class="forecast-high-temp">68&deg</div>
+            <div class="forecast-low-temp">50&deg</div>
+          </div>
+          `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemperatureCelsius(response) {
   celsiusButton.setAttribute("checked", "");
   fahrenheitButton.removeAttribute("checked");
@@ -353,3 +384,4 @@ searchForm.addEventListener("submit", handleSubmit);
 
 // Get New York Weather on Page Load
 search("New York");
+displayForecast();

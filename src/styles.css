@@ -290,6 +290,7 @@ hr.current-time-hr {
 
 .sunrise-sunset-position {
   position: relative;
+  right: 1px;
 }
 
 #sunrise-hour {
@@ -304,7 +305,7 @@ hr.current-time-hr {
 
 .sunset {
   position: relative;
-  top: 5px;
+  top: 6px;
 }
 
 #sunset-hour {

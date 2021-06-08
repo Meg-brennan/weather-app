@@ -293,6 +293,26 @@ hr.current-time-hr {
   top: 3px;
 }
 
+#sunrise-hour {
+  position: relative;
+  left: 2px;
+}
+
+#sunrise-minutes {
+  position: relative;
+  right: 2px;
+}
+
+#sunset-hour {
+  position: relative;
+  left: 2px;
+}
+
+#sunset-minutes {
+  position: relative;
+  right: 2px;
+}
+
 .visibility {
   max-width: 200px;
   text-align: center;

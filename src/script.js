@@ -148,22 +148,40 @@ function displayWindData(response) {
 }
 
 function displaySunriseSunset(response) {
-  //this function is not functional
-  let sunriseTimestamp = response.data.sys.sunrise * 1000;
-  let sunsetTimestamp = response.data.sys.sunset * 1000;
+  let sunriseUnix = response.data.sys.sunrise;
+  let sunsetUnix = response.data.sys.sunset;
   let timezone = response.data.timezone;
-  let adjustedSunrise = sunriseTimestamp + timezone;
-  let adjustedSunset = sunsetTimestamp + timezone;
-  console.log(sunriseTimestamp);
-  console.log(sunsetTimestamp);
-  console.log(timezone);
-  //console.log(adjustedSunrise);
+  let sunriseTimestamp = sunriseUnix * 1000;
+  let sunsetTimestamp = sunsetUnix * 1000;
+  let adjustedTimezone = timezone / 3600 + 7;
+  //console.log(timezone / 1200);
+  //console.log(adjustedTimezone);
   let sunrise = new Date(sunriseTimestamp);
   let sunset = new Date(sunsetTimestamp);
-  console.log(sunrise.getTime());
   //console.log(sunrise);
-  console.log(sunset.getTime());
   //console.log(sunset);
+
+  let sunriseHour = sunrise.getHours() + adjustedTimezone;
+  if (sunriseHour < 10) {
+    sunriseHour = `0${sunriseHour}`;
+  }
+  let sunriseMinutes = sunrise.getMinutes();
+  if (sunriseMinutes < 10) {
+    sunriseMinutes = `0${sunriseMinutes}`;
+  }
+  let sunsetHour = sunset.getHours() + adjustedTimezone;
+  if (sunsetHour < 10) {
+    sunsetHour = `0${sunsetHour}`;
+  }
+  let sunsetMinutes = sunset.getMinutes();
+  if (sunsetMinutes < 10) {
+    sunsetMinutes = `0${sunsetMinutes}`;
+  }
+
+  document.querySelector("#sunrise-hour").innerHTML = sunriseHour;
+  document.querySelector("#sunrise-minutes").innerHTML = sunriseMinutes;
+  document.querySelector("#sunset-hour").innerHTML = sunsetHour;
+  document.querySelector("#sunset-minutes").innerHTML = sunsetMinutes;
 }
 
 function displayVisibility(response) {

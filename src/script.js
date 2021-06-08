@@ -154,13 +154,8 @@ function displaySunriseSunset(response) {
   let sunriseTimestamp = sunriseUnix * 1000;
   let sunsetTimestamp = sunsetUnix * 1000;
   let adjustedTimezone = timezone / 3600 + 7;
-  //console.log(timezone / 1200);
-  //console.log(adjustedTimezone);
   let sunrise = new Date(sunriseTimestamp);
   let sunset = new Date(sunsetTimestamp);
-  //console.log(sunrise);
-  //console.log(sunset);
-
   let sunriseHour = sunrise.getHours() + adjustedTimezone;
   if (sunriseHour < 10) {
     sunriseHour = `0${sunriseHour}`;
@@ -174,7 +169,11 @@ function displaySunriseSunset(response) {
     sunriseMinutes = `0${sunriseMinutes}`;
   }
   let sunsetHour = sunset.getHours() + adjustedTimezone;
-  if (sunsetHour < 10) {
+  if (sunsetHour < 10 && sunsetHour >= 0) {
+    sunsetHour = `0${sunsetHour}`;
+  }
+  if (sunsetHour < 0) {
+    sunsetHour = sunsetHour * -1;
     sunsetHour = `0${sunsetHour}`;
   }
   let sunsetMinutes = sunset.getMinutes();
@@ -203,7 +202,6 @@ function displayVisibility(response) {
 }
 
 function displayAirQuality(response) {
-  //console.log(response);
   let aqi = response.data.data.aqi;
   let airQualityRating = document.querySelector("#air-quality-rating");
   let airQualityDescription = document.querySelector(

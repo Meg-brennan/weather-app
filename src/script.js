@@ -148,15 +148,16 @@ function displayWindData(response) {
 }
 
 function displaySunriseSunset(response) {
-  let sunriseUnix = response.data.sys.sunrise;
-  let sunsetUnix = response.data.sys.sunset;
-  let timezone = response.data.timezone;
-  let sunriseTimestamp = sunriseUnix * 1000;
-  let sunsetTimestamp = sunsetUnix * 1000;
-  let adjustedTimezone = timezone / 3600 + 7;
+  let sunriseTimestamp = response.data.sys.sunrise * 1000;
+  let sunsetTimestamp = response.data.sys.sunset * 1000;
   let sunrise = new Date(sunriseTimestamp);
   let sunset = new Date(sunsetTimestamp);
+  let timezone = response.data.timezone;
+  let timezoneOffset = sunrise.getTimezoneOffset() / 60;
+  let adjustedTimezone = timezone / 3600 + timezoneOffset;
   let sunriseHour = sunrise.getHours() + adjustedTimezone;
+  console.log(sunrise.getTimezoneOffset());
+  console.log(timezoneOffset);
   if (sunriseHour < 10) {
     sunriseHour = `0${sunriseHour}`;
   }

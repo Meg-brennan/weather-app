@@ -158,7 +158,7 @@ function displaySunriseSunset(response) {
   let sunriseHour = sunrise.getHours() + adjustedTimezone;
   console.log(sunrise.getTimezoneOffset());
   console.log(timezoneOffset);
-  if (sunriseHour < 10) {
+  if (sunriseHour < 10 && sunriseHour >= 0) {
     sunriseHour = `0${sunriseHour}`;
   }
   if (sunriseHour >= 24) {

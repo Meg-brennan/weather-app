@@ -59,7 +59,6 @@ function formatDate(timestamp) {
 function displayTemperatureCelsius(response) {
   celsiusButton.setAttribute("checked", "");
   fahrenheitButton.removeAttribute("checked");
-  console.log(response);
   document.querySelector("#current-temp").innerHTML = Math.round(tempC);
   document.querySelector("#current-temperature-scale").innerHTML = "&degC";
   document.querySelector("#today-high-temp").innerHTML =
@@ -156,8 +155,6 @@ function displaySunriseSunset(response) {
   let timezoneOffset = sunrise.getTimezoneOffset() / 60;
   let adjustedTimezone = timezone / 3600 + timezoneOffset;
   let sunriseHour = sunrise.getHours() + adjustedTimezone;
-  console.log(sunrise.getTimezoneOffset());
-  console.log(timezoneOffset);
   if (sunriseHour < 10 && sunriseHour >= 0) {
     sunriseHour = `0${sunriseHour}`;
   }
@@ -165,7 +162,7 @@ function displaySunriseSunset(response) {
     sunriseHour = sunriseHour - 24;
     sunriseHour = `0${sunriseHour}`;
   }
-  if (sunriseHour > 0) {
+  if (sunriseHour < 0) {
     sunriseHour = sunriseHour * -1;
     sunriseHour = `0${sunriseHour};`;
   }

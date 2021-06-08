@@ -165,6 +165,10 @@ function displaySunriseSunset(response) {
   if (sunriseHour < 10) {
     sunriseHour = `0${sunriseHour}`;
   }
+  if (sunriseHour >= 24) {
+    sunriseHour = sunriseHour - 24;
+    sunriseHour = `0${sunriseHour}`;
+  }
   let sunriseMinutes = sunrise.getMinutes();
   if (sunriseMinutes < 10) {
     sunriseMinutes = `0${sunriseMinutes}`;

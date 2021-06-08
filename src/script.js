@@ -56,7 +56,8 @@ function formatDate(timestamp) {
   document.querySelector("#date").innerHTML = `${day}, ${month} ${date}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon"];
@@ -85,6 +86,14 @@ function displayForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let unit = "metric";
+  let apiEndpoint = `https://api.openweathermap.org/data/2.5/onecall?`;
+  let apiKey = "fffd06c6f67e1f436ef14a830d4aa701";
+  let apiUrl = `${apiEndpoint}lat=${coordinates.lat}&lon=${coordinates.lon}&units=${unit}&exclude=current,minutely,hourly&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayTemperatureCelsius(response) {
@@ -315,6 +324,8 @@ function displayCurrentConditions(response) {
   displayVisibility(response);
   // air quality;
   getAirQuality(response);
+  // get forecast
+  getForecast(response.data.coord);
 }
 
 function displaySearchLocation(response) {
@@ -333,7 +344,7 @@ function retrievePosition(position) {
   let speed = "metric";
   let apiKey = "fffd06c6f67e1f436ef14a830d4aa701";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
-  let apiUrl = `${apiEndpoint}appid=${apiKey}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=${unit}&${speed}`;
+  let apiUrl = `${apiEndpoint}appid=${apiKey}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=${unit}&speed=${speed}`;
 
   axios.get(`${apiUrl}`).then(displaySearchLocation);
   axios.get(`${apiUrl}`).then(displayCurrentConditions);
@@ -384,4 +395,3 @@ searchForm.addEventListener("submit", handleSubmit);
 
 // Get New York Weather on Page Load
 search("New York");
-displayForecast();

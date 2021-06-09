@@ -58,15 +58,13 @@ function formatDate(timestamp) {
 
 function formatForecastDate(timestamp) {
   let date = new Date(timestamp * 1000);
-  let day = date.getDay();
   let forecastDate = date.getDate();
 
-  return day;
+  return forecastDate;
 }
 
 function formatMonth(timestamp) {
   let date = new Date(timestamp * 1000);
-  let day = date.getDay();
   let month = date.getMonth();
   let months = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
 

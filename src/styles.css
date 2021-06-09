@@ -350,7 +350,7 @@ hr.section-break {
 }
 
 .forecast-weather-icon {
-  font-size: 36px;
+  width: 60px;
 }
 
 .forecast-high-temp {

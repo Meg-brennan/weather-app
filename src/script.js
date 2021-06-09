@@ -56,32 +56,71 @@ function formatDate(timestamp) {
   document.querySelector("#date").innerHTML = `${day}, ${month} ${date}`;
 }
 
+function formatForecastDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let forecastDate = date.getDate();
+
+  return day;
+}
+
+function formatMonth(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let month = date.getMonth();
+  let months = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+
+  return months[month];
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `     
+  forecast.forEach(function (forecastDay, index) {
+    if (index >= 1 && index <= 6) {
+      //the following two lines can also be written as: forecastHTML +=
+      forecastHTML =
+        forecastHTML +
+        `     
           <div class="col-2 future-forecast">
-            <div class="forecast-date">5/3</div>
+          <div id="forecast-date-group">
+          <div class="forecast-date">${formatMonth(
+            forecastDay.dt
+          )}/${formatForecastDate(forecastDay.dt)}</div>
             <div>
-              <div class="forecast-date-border">${day}</div>
+              <div class="forecast-date-border">${formatDay(
+                forecastDay.dt
+              )}</div>
+            </div>
+          
             </div>
             <div class="forecast-weather-icon">
               <img
-                src=""
-                alt=""
-                id="weather-icon"
-                class="current-weather-icon"
+                src="https://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png"
+                alt="${forecastDay.weather[0].description}"
+                class="forecast-weather-icon"
               />
             </div>
-            <div class="forecast-high-temp">68&deg</div>
-            <div class="forecast-low-temp">50&deg</div>
+            <div class="forecast-high-temp">${Math.round(
+              forecastDay.temp.max
+            )}&deg</div>
+            <div class="forecast-low-temp">${Math.round(
+              forecastDay.temp.min
+            )}&deg</div>
           </div>
           `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;

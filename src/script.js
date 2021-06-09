@@ -126,7 +126,12 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  let unit = "metric";
+  if (celsiusButton.hasAttribute("checked")) {
+    unit = "metric";
+  }
+  if (fahrenheitButton.hasAttribute("checked")) {
+    unit = "imperial";
+  }
   let apiEndpoint = `https://api.openweathermap.org/data/2.5/onecall?`;
   let apiKey = "fffd06c6f67e1f436ef14a830d4aa701";
   let apiUrl = `${apiEndpoint}lat=${coordinates.lat}&lon=${coordinates.lon}&units=${unit}&exclude=current,minutely,hourly&appid=${apiKey}`;
@@ -325,8 +330,14 @@ function getAirQuality(response) {
 function getTemperatureScale(response) {
   if (fahrenheitButton.hasAttribute("checked")) {
     displayTemperatureFahrenheit(response);
+    getForecast(response.data.coord);
+    displayVisibility(response);
+    displayWindData(response);
   } else {
     displayTemperatureCelsius(response);
+    getForecast(response.data.coord);
+    displayVisibility(response);
+    displayWindData(response);
   }
 }
 
@@ -377,7 +388,7 @@ function displaySearchLocation(response) {
 
 function retrievePosition(position) {
   document.querySelector("#search-text-input").value = "";
-  let unit = "metric";
+  unit = "metric";
   let speed = "metric";
   let apiKey = "fffd06c6f67e1f436ef14a830d4aa701";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
@@ -393,7 +404,7 @@ function getCurrentLocation(event) {
 }
 
 function search(city) {
-  let unit = "metric";
+  unit = "metric";
   let speed = "metric";
   let apiKey = "fffd06c6f67e1f436ef14a830d4aa701";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
@@ -414,6 +425,7 @@ let tempC = null;
 let currentHighTemp = null;
 let currentLowTemp = null;
 let currentRealFeelTemp = null;
+let unit = null;
 
 // Temperature scale radio-buttons event listeners
 let fahrenheitButton = document.querySelector("#btnradio1");

@@ -1,6 +1,7 @@
 body {
-  background: rgb(85, 85, 85);
+  background: rgb(96, 109, 116);
   font-family: Roboto, sans-serif;
+  color: #000;
 }
 
 form {
@@ -9,7 +10,7 @@ form {
 
 h1 {
   color: rgb(34, 34, 34);
-  font-size: 28px;
+  font-size: 24px;
   margin: 0 auto;
   margin-bottom: 5px;
   text-align: center;
@@ -19,6 +20,8 @@ h4 {
   color: rgb(34, 34, 34);
   margin-bottom: -10px;
   text-align: center;
+  font-size: 18px;
+  margin-top: 5px;
 }
 
 footer {
@@ -30,12 +33,11 @@ footer {
 }
 
 .weather-app {
-  background: linear-gradient(rgb(52, 100, 109) 50%, rgb(86, 146, 156) 90%);
+  background: linear-gradient(rgb(48, 127, 141) 50%, rgb(93, 157, 168) 90%);
   border: 2px solid rgb(11, 53, 61);
   border-radius: 20px;
-  box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.1),
-    -10px -5px 10px rgba(0, 0, 0, 0.1), 10px -5px 10px rgba(0, 0, 0, 0.1),
-    -10px 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2), -5px -5px 8px rgba(0, 0, 0, 0.2),
+    5px -5px 8px rgba(0, 0, 0, 0.2), -5px 5px 8px rgba(0, 0, 0, 0.2);
   margin: 10px auto;
   max-width: 700px;
   padding-top: 20px;
@@ -59,21 +61,22 @@ footer {
 
 .search-button {
   display: inline-flex;
+  background: rgb(43, 112, 124);
 }
 
 .location {
   color: rgb(0, 0, 0);
-  font-size: 30px;
+  font-size: 28px;
   font-weight: bold;
 }
 
 .fahrenheit-celsius {
-  height: 30px;
+  height: 25px;
   display: flex;
   align-items: flex-start;
   margin: auto;
   max-width: 100px;
-  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }
 
@@ -82,14 +85,14 @@ input.btn-check {
 }
 
 label.temperature-scale {
-  height: 30px;
+  height: 25px;
   position: relative;
   margin: 0 auto;
 }
 
 .temperature-label {
   position: relative;
-  bottom: 3px;
+  bottom: 6px;
 }
 
 .current-date-time {
@@ -97,7 +100,7 @@ label.temperature-scale {
 }
 
 .date {
-  background: linear-gradient(rgb(43, 140, 153), rgb(30, 119, 134));
+  background: linear-gradient(rgb(57, 181, 197), rgb(33, 128, 145));
   border: 2px solid rgb(29, 69, 75);
   border-radius: 20px;
   color: rgb(19, 19, 19);
@@ -107,6 +110,7 @@ label.temperature-scale {
   padding: 0 20px;
   text-align: center;
   width: fit-content;
+  line-height: 30px;
 }
 
 #suffix {
@@ -117,7 +121,8 @@ label.temperature-scale {
 .current-time-statement {
   text-align: center;
   position: relative;
-  top: -8px;
+  top: -5px;
+  line-height: 24px;
 }
 
 .current-time {
@@ -132,8 +137,26 @@ hr.current-time-hr {
   height: 2px;
 }
 
+.current-weather-section {
+  color: #000;
+  font-size: 28px;
+  font-weight: bold;
+  position: relative;
+  top: -10px;
+  text-align: center;
+}
+
+.current-weather-description {
+  position: relative;
+  bottom: 16px;
+}
+
+.current-weather-description:first-letter {
+  text-transform: capitalize;
+}
+
 .current-temp-section {
-  color: rgb(34, 34, 34);
+  color: #000;
   font-weight: bold;
   font-size: 18px;
   max-width: 300px;
@@ -142,8 +165,6 @@ hr.current-time-hr {
 
 .current-temp-hr {
   margin: 3px auto;
-  position: relative;
-  top: 5px;
   width: 150px;
 }
 
@@ -160,30 +181,10 @@ hr.current-time-hr {
   bottom: 20px;
 }
 
-.current-weather-section {
-  color: rgb(22, 22, 22);
-  font-size: 28px;
-  font-weight: bold;
-  position: relative;
-  text-align: center;
-  top: 20px;
-}
-
-.current-weather-description {
-  position: relative;
-  bottom: 16px;
-}
-
-.current-weather-description:first-letter {
-  text-transform: capitalize;
-}
-
 .today-high-low {
   text-align: center;
   color: rgb(19, 19, 19);
   margin: auto;
-  position: relative;
-  bottom: 20px;
   font-size: 26px;
 }
 
@@ -194,6 +195,7 @@ hr.current-time-hr {
 
 .today-low-temp {
   font-size: 30px;
+  font-weight: normal;
 }
 
 .today-high-temperature-scale {
@@ -210,15 +212,15 @@ hr.current-time-hr {
 }
 
 .current-conditions {
-  background: rgb(77, 160, 156);
-  border: 3px solid rgb(9, 72, 77);
+  background: rgb(61, 184, 178);
+  border: 3px solid rgb(9, 63, 77);
   border-radius: 20px;
   box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
-  max-width: 225px;
+  max-width: 205px;
   margin: auto;
   position: relative;
-  right: 8px;
-  top: 20px;
+  right: 10px;
+  color: #000;
 }
 
 .current-conditions-list {
@@ -254,8 +256,8 @@ hr.current-time-hr {
 }
 
 .additional-conditions {
-  background: rgb(77, 160, 156);
-  border: 3px solid rgb(9, 72, 77);
+  background: rgb(61, 184, 178);
+  border: 3px solid rgb(9, 63, 77);
   border-radius: 50%;
   box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
   height: 110px;

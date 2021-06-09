@@ -73,6 +73,7 @@
             name="btnradio"
             id="btnradio1"
             autocomplete="off"
+            checked
           />
           <label class="btn btn-outline-dark temperature-scale" for="btnradio1">
             <span class="temperature-label">&degF</span>
@@ -84,7 +85,6 @@
             name="btnradio"
             id="btnradio3"
             autocomplete="off"
-            checked
           />
           <label class="btn btn-outline-dark temperature-scale" for="btnradio3">
             <span class="temperature-label">&degC</span>
@@ -120,6 +120,20 @@
             <hr class="current-temp-hr" />
             <span class="current-temp" id="current-temp"></span>
             <span id="current-temperature-scale"></span>
+            <br />
+            <div class="today-high-low">
+              <span class="today-high-temp" id="today-high-temp"></span
+              ><span
+                class="today-high-temperature-scale"
+                id="today-high-temp-scale"
+              ></span>
+              /
+              <span class="today-low-temp" id="today-low-temp"></span
+              ><span
+                class="today-low-temperature-scale"
+                id="today-low-temp-scale"
+              ></span>
+            </div>
           </div>
           <div class="col-4 current-conditions">
             <ul class="current-conditions-list">
@@ -143,21 +157,7 @@
             </ul>
           </div>
         </div>
-        <div class="row d-flex justify-content-center">
-          <div class="today-high-low">
-            <span class="today-high-temp" id="today-high-temp"></span
-            ><span
-              class="today-high-temperature-scale"
-              id="today-high-temp-scale"
-            ></span>
-            /
-            <span class="today-low-temp" id="today-low-temp"></span
-            ><span
-              class="today-low-temperature-scale"
-              id="today-low-temp-scale"
-            ></span>
-          </div>
-        </div>
+        <div class="row d-flex justify-content-center"></div>
         <div
           class="
             row

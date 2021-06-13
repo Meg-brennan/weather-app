@@ -28,10 +28,16 @@ function formatDate(timestamp) {
   let date = now.getDate();
   let suffix = document.querySelector("#suffix");
   let hour = now.getHours();
-  if (hour < 10) {
-    hour = `0${hour}`;
-  }
   let minutes = now.getMinutes();
+  let timeSuffix = null;
+  if (hour < 12) {
+    timeSuffix = "am";
+  } else {
+    timeSuffix = "pm";
+  }
+  if (hour > 12) {
+    hour = hour - 12;
+  }
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
@@ -45,14 +51,12 @@ function formatDate(timestamp) {
     suffix.innerHTML = "th";
   }
 
-  now.toLocaleTimeString("en-US", {
-    hour: "numeric",
-    hour12: true,
-  });
   // console.log(now.toLocaleTimeString());
   // I don't know how to implement .toLocaleTimeString into the webpage yet
 
-  document.querySelector("#current-time").innerHTML = `${hour}:${minutes}`;
+  document.querySelector(
+    "#current-time"
+  ).innerHTML = `${hour}:${minutes} ${timeSuffix}`;
   document.querySelector("#date").innerHTML = `${day}, ${month} ${date}`;
 }
 

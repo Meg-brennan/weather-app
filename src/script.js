@@ -293,7 +293,7 @@ function displaySearchLocation(response) {
 
 function retrievePosition(position) {
   document.querySelector("#search-text-input").value = "";
-  unit = "metric";
+  unit = "imperial";
   let speed = "metric";
   let apiKey = "fffd06c6f67e1f436ef14a830d4aa701";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";

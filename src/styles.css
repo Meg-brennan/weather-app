@@ -281,44 +281,22 @@ hr.current-time-hr {
   font-size: 17px;
 }
 
-.sunrise-sunset {
+.pressure {
   max-width: 200px;
   text-align: center;
 }
 
-.current-sunrise-sunset {
-  font-size: 18px;
-  line-height: 30px;
+.pressure-position {
+  position: relative;
+  top: 5px;
 }
 
-.sunrise-sunset-position {
-  position: relative;
-  right: 1px;
+#pressure-amount {
+  font-size: 22px;
 }
 
-#sunrise-hour {
-  position: relative;
-  left: 2px;
-}
-
-#sunrise-minutes {
-  position: relative;
-  right: 2px;
-}
-
-.sunset {
-  position: relative;
-  top: 6px;
-}
-
-#sunset-hour {
-  position: relative;
-  left: 2px;
-}
-
-#sunset-minutes {
-  position: relative;
-  right: 2px;
+#pressure-unit {
+  font-size: 16px;
 }
 
 .visibility {

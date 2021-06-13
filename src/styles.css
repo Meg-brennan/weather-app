@@ -70,31 +70,6 @@ footer {
   font-weight: bold;
 }
 
-.fahrenheit-celsius {
-  height: 25px;
-  display: flex;
-  align-items: flex-start;
-  margin: auto;
-  max-width: 100px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-}
-
-input.btn-check {
-  width: 100px;
-}
-
-label.temperature-scale {
-  height: 25px;
-  position: relative;
-  margin: 0 auto;
-}
-
-.temperature-label {
-  position: relative;
-  bottom: 6px;
-}
-
 .current-date-time {
   position: relative;
 }

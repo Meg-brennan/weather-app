@@ -126,66 +126,19 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  if (celsiusButton.hasAttribute("checked")) {
-    unit = "metric";
-  }
-  if (fahrenheitButton.hasAttribute("checked")) {
-    unit = "imperial";
-  }
+  unit = "imperial";
   let apiEndpoint = `https://api.openweathermap.org/data/2.5/onecall?`;
   let apiKey = "fffd06c6f67e1f436ef14a830d4aa701";
   let apiUrl = `${apiEndpoint}lat=${coordinates.lat}&lon=${coordinates.lon}&units=${unit}&exclude=current,minutely,hourly&appid=${apiKey}`;
   axios.get(apiUrl).then(displayForecast);
 }
 
-function displayTemperatureCelsius(response) {
-  celsiusButton.setAttribute("checked", "");
-  fahrenheitButton.removeAttribute("checked");
-  document.querySelector("#current-temp").innerHTML = Math.round(tempC);
-  document.querySelector("#current-temperature-scale").innerHTML = "&degC";
-  document.querySelector("#today-high-temp").innerHTML =
-    Math.round(currentHighTemp);
-  document.querySelector("#today-low-temp").innerHTML =
-    Math.round(currentLowTemp);
-  document.querySelector("#today-high-temp-scale").innerHTML = "&degC";
-  document.querySelector("#today-low-temp-scale").innerHTML = "&degC";
-  document.querySelector("#feels-like").innerHTML =
-    Math.round(currentRealFeelTemp);
-  document.querySelector("#feels-like-temp-scale").innerHTML = "&degC";
-}
-
-function displayTemperatureFahrenheit(response) {
-  fahrenheitButton.setAttribute("checked", "");
-  celsiusButton.removeAttribute("checked");
-  document.querySelector("#current-temp").innerHTML = Math.round(
-    (tempC * 9) / 5 + 32
-  );
-  document.querySelector("#current-temperature-scale").innerHTML = "&degF";
-  document.querySelector("#today-high-temp").innerHTML = Math.round(
-    (currentHighTemp * 9) / 5 + 32
-  );
-  document.querySelector("#today-low-temp").innerHTML = Math.round(
-    (currentLowTemp * 9) / 5 + 32
-  );
-  document.querySelector("#today-high-temp-scale").innerHTML = "&degF";
-  document.querySelector("#today-low-temp-scale").innerHTML = "&degF";
-  document.querySelector("#feels-like").innerHTML = Math.round(
-    (currentRealFeelTemp * 9) / 5 + 32
-  );
-  document.querySelector("#feels-like-temp-scale").innerHTML = "&degF";
-}
-
 function displayWindData(response) {
   let windUnit = document.querySelector("#wind-unit");
   let windSpeed = document.querySelector("#wind-speed");
 
-  if (fahrenheitButton.hasAttribute("checked")) {
-    windUnit.innerHTML = " mi/h ";
-    windSpeed.innerHTML = Math.round(response.data.wind.speed * 2.232);
-  } else {
-    windUnit.innerHTML = " km/h ";
-    windSpeed.innerHTML = Math.round(response.data.wind.speed * 3.6);
-  }
+  windUnit.innerHTML = " mi/h ";
+  windSpeed.innerHTML = Math.round(response.data.wind.speed * 2.232);
 
   let windDegrees = response.data.wind.deg;
   let windDirection = document.querySelector("#wind-direction");
@@ -237,14 +190,9 @@ function displayVisibility(response) {
   let visibility = document.querySelector("#visibility-amount");
   let visibilityUnit = document.querySelector("#visibility-unit");
 
-  if (celsiusButton.hasAttribute("checked")) {
-    visibility.innerHTML = Math.round(response.data.visibility / 100) / 10;
-    visibilityUnit.innerHTML = "km";
-  } else {
-    visibility.innerHTML =
-      Math.round(response.data.visibility * 0.0062137119) / 10;
-    visibilityUnit.innerHTML = "mi";
-  }
+  visibility.innerHTML =
+    Math.round(response.data.visibility * 0.0062137119) / 10;
+  visibilityUnit.innerHTML = "mi";
 }
 
 function displayAirQuality(response) {
@@ -286,28 +234,26 @@ function getAirQuality(response) {
   axios.get(`${aqiApiUrl}`).then(displayAirQuality);
 }
 
-function getTemperatureScale(response) {
-  if (fahrenheitButton.hasAttribute("checked")) {
-    displayTemperatureFahrenheit(response);
-    getForecast(response.data.coord);
-    displayVisibility(response);
-    displayWindData(response);
-  } else {
-    displayTemperatureCelsius(response);
-    getForecast(response.data.coord);
-    displayVisibility(response);
-    displayWindData(response);
-  }
+function displayTemperatureFahrenheit(response) {
+  document.querySelector("#current-temp").innerHTML = Math.round(tempF);
+  document.querySelector("#current-temperature-scale").innerHTML = "&degF";
+  document.querySelector("#today-high-temp").innerHTML =
+    Math.round(currentHighTemp) + "&deg";
+  document.querySelector("#today-low-temp").innerHTML =
+    Math.round(currentLowTemp) + "&deg";
+  document.querySelector("#feels-like").innerHTML =
+    Math.round(currentRealFeelTemp);
+  document.querySelector("#feels-like-temp-scale").innerHTML = "&degF";
 }
 
 function displayCurrentConditions(response) {
   // temperature (current, high, low, feels like)
-  tempC = response.data.main.temp;
+  tempF = response.data.main.temp;
   currentHighTemp = response.data.main.temp_max;
   currentLowTemp = response.data.main.temp_min;
   currentRealFeelTemp = response.data.main.feels_like;
 
-  getTemperatureScale(response);
+  displayTemperatureFahrenheit(response);
   // weather description
   document.querySelector("#current-weather").innerHTML =
     response.data.weather[0].description;
@@ -363,7 +309,7 @@ function getCurrentLocation(event) {
 }
 
 function search(city) {
-  unit = "metric";
+  unit = "imperial";
   let speed = "metric";
   let apiKey = "fffd06c6f67e1f436ef14a830d4aa701";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
@@ -380,18 +326,11 @@ function handleSubmit(event) {
 }
 
 // Global temperature variables
-let tempC = null;
+let tempF = null;
 let currentHighTemp = null;
 let currentLowTemp = null;
 let currentRealFeelTemp = null;
 let unit = null;
-
-// Temperature scale radio-buttons event listeners
-let fahrenheitButton = document.querySelector("#btnradio1");
-let celsiusButton = document.querySelector("#btnradio3");
-
-celsiusButton.addEventListener("click", displayTemperatureCelsius);
-fahrenheitButton.addEventListener("click", displayTemperatureFahrenheit);
 
 // Get Current Location on button click
 let currentLocationButton = document.querySelector("#current-location-button");
